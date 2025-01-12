@@ -1,0 +1,39 @@
+API Endpoints
+
+Authentication
+- POST /api/users/register - Register a new user
+- POST /api/users/login - Login user
+
+Expenses
+- GET /api/expenses - Get all expenses for logged-in user
+- POST /api/expenses - Create new expense
+- PUT /api/expenses/:id - Update expense
+- DELETE /api/expenses/:id - Delete expense
+
+Architecture and Flow
+
+Backend Architecture
+- Server : Express.js
+- Database: MongoDB with Mongoose ODM
+- Authentication : JWT (JSON Web Tokens)
+- Middleware : Custom auth middleware for protected routes
+- Controllers : Separate controllers for users and expenses
+- Models : Mongoose schemas for User and Expense
+
+Frontend Architecture
+- Framework : React
+- State Management : React Hooks
+- API Communication : Axios
+- Routing : React Router
+- Charts : Recharts library
+- Styling : CSS with responsive design
+
+Application Flow
+
+1. User registers/logs in to get authentication token
+2. Token is stored in local storage for persistent sessions
+3. All subsequent requests include the auth token in headers
+4. Protected routes check token validity before processing
+5. Users can only access and modify their own expenses
+6. Real-time updates when expenses are modified
+7. Dashboard automatically updates with new data
